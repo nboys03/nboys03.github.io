@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Research - LET+S</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <nav>
+        <a href="../../index.html">Home</a>
+        <a href="../research.html">Research</a>
+        <a href="../IDATA/idata.html">IDATA</a>
+        <a href="../NITARP/nitarp.html">NITARP</a>
+        <a href="./lets.html" id="current">LET+S</a>
+        <a href="../../classes/classes.html">Classes</a>
+        <a href="../../likesandhobbies/likesandhobbies.html">Likes/Hobbies</a>
+        <a href="../../likesandhobbies/crochet/crochet.html">Crochet</a>
+        <a href="../../likesandhobbies/reading/reading.html">Reading</a>
+        <a href="../../likesandhobbies/music/music.html">Music</a>
+        <a href="../../likesandhobbies/games/games.html">Gaming</a>
+    </nav>
+    <header>
+        <h1>Thermal Conductivity Facility - LET+S</h1>
+    </header>
+    <p>I’m also working on developing a flexible thermal conductivity measurement system for the UW-Madison Laboratory
+        for Energy Transport and Storage (LET+S). The first use case will be measuring the thermal conductivity of phase
+        change materials (PCMs), which is of interest for developing high-efficiency thermal energy storage devices.
+    </p>
+    <h2>Motivation</h2>
+    <p>The motivation for this research stems from the fact that phase change materials (PCMs) have the potential to be
+        a valuable resource in the renewable energy sector [1]. One challenge with implementing renewable energy on a
+        large scale is its reliability. For example, solar energy is intermittent. It cannot be harnessed during the
+        night or when it is overcast. The solution to the intermittency issue is to store the energy in batteries, which
+        allows it to be accessed at later times. Thermal energy storage systems that utilize PCMs represent a promising
+        approach, as these systems can have a better lifetime than typical electrochemical batteries because the PCMs
+        will not undergo major degradation with time. </p>
+    <p>The effectiveness of PCMs depends on two key factors: (1) the amount of energy that they can store (which is
+        determined by the latent heat of the phase transition), and (2) how quickly that energy can be accessed (which
+        is determined by the thermal conductivity) [2]. Though central to the viability of thermal energy storage
+        systems, the thermal properties of many emerging PCMs are poorly understood and there are key performance
+        trade-offs that must be considered. For example, materials with high latent heat of phase change (a good
+        ability to store a large amount of energy) tend to have poor thermal conductivity (a poor ability to access
+        that energy quickly), and vice versa. Composite PCMs combat this trade-off by combining a PCM with a high latent
+        heat of phase change in a conductive lattice [3]. This composite material will have a thermal conductivity that
+        is different from either material it is made of, so a thermal conductivity test facility is critical to
+        characterize its novel thermal conductivity.</p>
+    <h2>Background Information</h2>
+    <h3>Thermal Conductivity</h3>
+    <p>Thermal conductivity is the measure of a material’s ability to conduct heat. It is an intrinsic material property
+        that is independent of the object’s geometry. Thermal conductivity is related to the heat transfer rate
+        according to Fourier’s Law: q = -kA(dT/dx), where q is the heat transfer rate, k is the thermal conductivity, A
+        is the cross-sectional area, and dT/dx is the temperature gradient [4]. Fourier’s law shows that as thermal
+        conductivity increases, the magnitude of the heat transfer rate also increases. While thermal conductivity is a
+        material property, it can change as the material changes phase.</p>
+    <h3>Phase Change Materials</h3>
+    <p>Phase change materials (PCMs) are materials that can store thermal energy through the latent heat of their phase
+        transitions. Latent heat is the energy released or absorbed by a material during its phase changes. Typically,
+        PCMs used for energy storage leverage the solid-to-liquid phase transition (or vice versa) [1]. As shown in the
+        image below, PCMs absorb thermal energy and store it during a solid to liquid phase transition. This energy is
+        then released during a liquid to solid phase transition.</p>
+    <img src="./pcm.jpg"
+        alt="An image showing how PCMs store energy. It shows solid ice with an arrow to liquid water and another arrow to solid ice. Each stage has the following captions: heat absorption, heat storage, and heat release.">
+    <figcaption>A diagram that shows how energy is stored in PCMs (adapted from Ref. [5]).</figcaption>
+    <h3>Measuring Thermal Conductivity</h3>
+    <p>There are two general approaches to measure thermal conductivity: steady state methods and transient methods. In
+        the steady state approach, the data used to calculate the thermal conductivity is measured once a steady
+        temperature gradient is established through the material. In the transient approach, the thermal conductivity is
+        measured based on a thermal time response to a pulsed heat input. For this facility, we decided to go with a
+        steady state method because they are often more accurate than transient methods [6], [7]. </p>
+    <p>One traditional steady state method is the 1D reference bar apparatus. The 1D reference bar apparatus establishes
+        a steady temperature gradient through a specimen with a known thickness. As shown in Fig. 2a, the insulation
+        minimizes heat loss to the surroundings, which ensures that heat flows in one direction through the specimen. It
+        consists of a heating block (a cartridge heater mounted in a copper block), two reference bars of known thermal
+        conductivity, the specimen, and a cold plate. The heating block heats the top of the upper reference bar to a
+        constant temperature, and the cold plate keeps the bottom of the lower reference bar at a constant temperature.
+        The specimen is sandwiched between the upper reference bar and the lower reference bar. In this set-up, the
+        reference bars’ cross-sectional area is the same as the cross-sectional area of the specimen. The major drawback
+        of this method is that it requires very precise alignment. The hardware necessary for this alignment is often
+        expensive and technically challenging to implement.</p>
+    <p>One way to decrease this uncertainty is to use a stepped bar apparatus. As shown in Fig. 2, its set-up is
+        identical to a 1D reference bar apparatus, but instead, the upper reference bar has a greater cross-sectional
+        area than the specimen and the lower-reference bar. Therefore, the specimen only has to be aligned to the lower
+        reference bar, which decreases the contact area uncertainty. The measurement system is the same, but due to the
+        difference in area, the temperature profile in the upper reference bar is nonlinear. This changes how the
+        temperature at the interface is extrapolated, but Fourier’s law is still used to calculate thermal conductivity
+        [8]. Due to this decreased uncertainty and easier technical implementation, we decided to use this approach for
+        the facility.</p>
+    <img src="./1DvsStepped.jpg"
+        alt="An image showing the difference between a 1D reference bar apparatus (left) and a stepped bar apparatus (right).">
+    <figcaption>(a) The schematic for a standard 1D reference bar apparatus, (b) the schematic for a stepped bar
+        apparatus</figcaption>
+    <h2>Numerical Models</h2>
+    <p>Over the course of the development process, I developed two numerical models. The first is a 2D heat transfer
+        model that simulates how heat flows through the reference bars and the specimen. It used a finite-difference
+        method to simulate the heat flow. First, a grid of nodes was created in the URB, LRB, and specimen. Then, as
+        shown in the image below, an energy balance is calculated on each node.</p>
+    <img src="./modeling.jpg" alt="A pictorial representation of the finite-difference modeling method.">
+    <p>The second model is a MATLAB model that calculates the thermal conductivity given the temperature measurements at
+        locations corresponding to thermocouple locations using Fourier’s Law. This model is currently being used as the
+        data analysis code. Below are two images. The first is a representative heat map that was created with the data
+        from the first numerical model. The second is the resuting graphs of the second numerical model that were
+        created
+        using the same data.</p>
+    <img src="./heatmap.jpg"
+        alt="A heatmap created using data from the first numerical model. It shows the temperatures of each node in the URB, LRB, and sample using a representative color (red for hot to blue for cold).">
+    <img src="./graphs.jpg" alt="The resulting graphs created using the second numerical model.">
+    <h2>Facility</h2>
+    <p>The facility is currently built and is undergoing initial validation testing and uncertainty quantification.
+        Here's some pictures of what it looks like now!</p>
+    <img src="./facility_overview.jpg" alt="An overview of the facility wihtout insulation or thermocouples.">
+    <figcaption>The facility without insulation or thermocouples, which shows the general setup.</figcaption>
+    <img src="./thermocouple_locations.jpg"
+        alt="An image showing the relative positions of the thermocouples and their sizes in the URB and LRB">
+    <figcaption>A close-up of the URB and LRB showing the relative location and size of the thermocouples.</figcaption>
+    <img src="./thermocouple_mounting.jpg" alt="An image showing how the thermocouples are mounted to the facility.">
+    <figcaption>A close-up showing how the thermocouples are mounted to the facility.</figcaption>
+    <img src="./insulation.jpg" alt="An image showing the insulated facility">
+    <figcaption>The fully insulated facility</figcaption>
+
+    <h2>Poster</h2>
+    <p>I presented the below poster at a WISE (Women in Science and Engineering) poster session.</p>
+    <img src="./NaleahBoys-Research.png" alt="My poster about this project." class="poster" id="square">
+
+    <h2>Learn More</h2>
+    <p>For more information about LET+S, please visit this <a href="https://lets.engr.wisc.edu/">website</a>.</p>
+
+    <h2>References</h2>
+    <ol>
+        <li>Storing energy. (2016). Elsevier. <a
+                href="https://doi.org/10.1016/C2014-0-04236-0">https://doi.org/10.1016/C2014-0-04236-0</a></li>
+        <li>Freeman, T. B., Foster, K. E. O., Troxler, C. J., Irvin, C. W., Aday, A., Boetcher, S. K. S., Mahvi, A.,
+            Smith, M. K., & Odukomaiya, A. (2023). Advanced materials and additive manufacturing for phase change
+            thermal energy storage and management: A review. Advanced Energy Materials, 13(24), 2204208. <a
+                href="https://doi.org/10.1002/aenm.202204208">https://doi.org/10.1002/aenm.202204208</a></li>
+        <li>Radouane, N. (2022). A comprehensive review of composite phase change materials (cPCMs) for thermal
+            management applications, including manufacturing processes, performance, and applications. Energies, 15(21),
+            8271. <a href="https://doi.org/10.3390/en15218271">https://doi.org/10.3390/en15218271</a></li>
+        <li>Nellis, G., & Klein, S. A. (2019). Introduction to engineering heat transfer. Cambridge University Press.
+        </li>
+        <li>Aftab, W., Usman, A., Shi, J., Yuan, K., Qin, M., & Zou, R. (2021). Phase change material-integrated latent
+            heat storage systems for sustainable energy solutions. Energy & Environmental Science, 14(8), 4268–4291. <a
+                href="https://doi.org/10.1039/D1EE00527H">https://doi.org/10.1039/D1EE00527H</a></li>
+        <li>Yüksel, N. (2016). The review of some commonly used methods and techniques to measure the thermal
+            conductivity of insulation materials. In A. Almusaed & A. Almssad (Eds.), Insulation Materials in Context of
+            Sustainability. InTech. <a href="https://doi.org/10.5772/64157">https://doi.org/10.5772/64157</a></li>
+        <li>Mathis, N. (2000). Transient thermal conductivity measurements: Comparison of destructive and nondestructive
+            techniques. High Temperatures-High Pressures, 32(3), 321–327. <a
+                href="https://doi.org/10.1068/htwu289">https://doi.org/10.1068/htwu289</a></li>
+        <li>Thompson, D. R., Rao, S. R., & Cola, B. A. (2013). A stepped-bar apparatus for thermal resistance
+            measurements. Journal of Electronic Packaging, 135(4), 041002. <a
+                href="https://doi.org/10.1115/1.4025116">https://doi.org/10.1115/1.4025116</a></li>
+    </ol>
+</body>
+
+</html>
