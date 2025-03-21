@@ -1,0 +1,69 @@
+<html>
+<!--NOTE: I purposely did not follow all of the html requirements for this page, since I viewed it more as an element included in another page (classes.html)-->
+<!--That's why I don't have the navigation bar or have it linked to the external stylesheet.-->
+<!--Also, this code is taken directly from one of my Comp Sci 400 activities.-->
+
+<head>
+  <title>Dessert in the Desert Browser Game</title>
+  <style>
+    button {
+      color: blanchedalmond;
+      background-color: chocolate;
+      border-color: chocolate;
+      position: absolute;
+      font-size: 16px;
+      border-radius: 8px;
+    }
+
+    button:hover {
+      color: chocolate;
+      background-color: rgb(48, 18, 0);
+    }
+
+    body {
+      background-color: SandyBrown;
+    }
+
+    .bold {
+      font-weight: 800;
+    }
+  </style>
+  <script>
+    function randomizeButtonPositions() {
+      let buttons = document.querySelectorAll('button');
+      buttons.forEach((b) => {
+        b.style.left = (Math.random() * 80 + 10) + "%";
+        b.style.top = (Math.random() * 80 + 10) + "%";
+      });
+    }
+    let score = 0;
+
+    function handleDessertClick() {
+      randomizeButtonPositions();
+      score = score + 1;
+      document.querySelectorAll("#scoreVal")[0].innerHTML = "Score: " + score;
+    }
+    function handleDesertClick() {
+      randomizeButtonPositions();
+      score = score - 1;
+      document.querySelectorAll("#scoreVal")[0].innerHTML = "Score: " + score;
+    }
+
+  </script>
+  <meta name="author" content="nboys">
+</head>
+
+<body onload="randomizeButtonPositions()">
+  <p id="scoreVal" class="bold">Score: 0
+  </p>
+  <button onclick="handleDessertClick()">Dessert</button>
+  <button onclick="handleDesertClick()">Desert</button>
+  <button onclick="handleDesertClick()">Desert</button>
+  <button onclick="handleDesertClick()">Desert</button>
+  <button onclick="handleDesertClick()">Desert</button>
+  <button onclick="handleDesertClick()">Desert</button>
+  <button onclick="handleDesertClick()">Desert</button>
+  <button onclick="handleDesertClick()">Desert</button>
+</body>
+
+</html>
